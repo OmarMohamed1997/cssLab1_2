@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="500" style="border:1px solid green" id="can"></canvas>
+
+    <script>
+
+        var can = document.getElementById("can");
+    var ctx = can.getContext("2d");
+    function drawLine(x1,y1,x2,y2,ratio) {
+ 
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  x2 = parseInt(x1 + ratio * (x2-x1));
+  y2 = parseInt(y1 + ratio * (y2-y1));
+  
+  ctx.lineTo(x2,y2);
+  ctx.strokeStyle = "red";
+  ctx.stroke();
+  
+  if(x2==600  && y2 == 500){
+    alert("Animation Ended");
+  }
+  
+}
+
+function animate(ratio) {
+  ratio = ratio || 0;
+ 
+  drawLine(0,0,600,500,ratio);
+ 
+  if(ratio<1) {
+    requestAnimationFrame(function() {
+      animate(ratio + 0.01);
+    });
+  }
+
+}
+
+animate();
+    </script>
+</body>
+</html>

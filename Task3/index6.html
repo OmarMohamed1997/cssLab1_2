@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      input:invalid{
+        border: 2px solid red;
+      }
+      input:valid {
+        border: 2px solid green;
+       
+      }
+     
+      input[type="email"]:valid ~p {
+        display: none;
+       
+       
+      }
+
+      input[type="text"]:valid ~ p{
+        display: none;
+       
+       
+      }
+
+      input:focus{
+        border: 2px solid black;
+      }
+       
+
+    </style>
+</head>
+<body>
+    <h1>Change Email Address</h1>
+    <form>
+        <div>
+        <input type="text" placeholder="Username" pattern="[A-z]{5}" required  >
+        <p  style="color: red; margin-top: 0px;">The Required username must be only 5 alphabetics</p>
+            </div>
+
+    
+            <div>
+        <input type="email" placeholder="Email" pattern="^[A-z0-9]+@[A-z0-9]+\.[A-z0-9]+$"required/><br>
+        <p style="color: red; margin-top: 0px;"> The Required Email must be valid and must not contain any specialcharacters other than @</p>
+          </div>
+        <input type="submit">
+       
+    </form>
+</body>
+</html>

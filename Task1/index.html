@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <video src="frozen.mp4"  width="500"  poster="frozen.jpg" id="vid" style="display:block;"></video>
+    
+    <form action="/action_page.php" style="display: inline-block;" >
+        <input type="range" id="vol2" name="vol2" min="0" max="100" value="0" style="width: 500px;">
+      </form>
+      <span id="timer"> 0:00</span> / <span id ="durationTime"></span>
+      <br>
+    <button onclick="playVid()" type="button" >Start</button>
+    <button onclick="pauseVid()" type="button" >Stop</button>
+    <button onclick="backwordVid()" type="button" > << </button>
+    <button onclick="startVid()" type="button" > < </button>
+    <button onclick="endVid()" type="button" > > </button>
+    <button onclick="forwordVid()" type="button" > >> </button>
+    <button onclick="full()" type="button" >FULLScreen</button>
+    <form action="/action_page.php" style="display: inline-block;">
+        <input type="range" id="vol1" name="vol1" min="0" max="1"  step="0.1" value="0.5">
+      </form>
+      <button onclick="muteVid()" type="button" > mute </button>
+      
+
+    <form action="/action_page.php">
+        <label for="vol">Speed:</label>
+        <input type="range" id="vol" name="vol" min="1" max="16" value="1">
+      </form>
+    <script>
+        var rid= document.getElementById("vol");
+        var rid1= document.getElementById("vol1");
+        var rid2= document.getElementById("vol2");
+        
+        
+        var vid = document.getElementById("vid");
+        
+        
+        rid.addEventListener("click", function () {
+        // inp.value = vid.currentTime
+        vid.playbackRate = rid.value;         
+      });
+
+      
+
+      rid1.addEventListener("click", function () {
+        // inp.value = vid.currentTime
+        vid.volume = rid1.value;    
+        if(vid.muted){
+            vid.muted=false;
+        }   
+      });
+
+      vid.addEventListener("timeupdate", function () {
+        // inp.value = vid.currentTime
+           rid2.value=vid.currentTime;
+
+
+           var hours=parseInt(vid.currentTime/(60*60),10);
+                        var minutes = parseInt(vid.currentTime / 60, 10);
+                        var seconds = parseInt(vid.currentTime -minutes*60) ;
+                        var durMin = parseInt(vid.duration/60);
+                        var dursec = parseInt(vid.duration - durMin*60);
+                        if(seconds<10 ){
+                            seconds="0"+seconds;
+                        }
+                        if(dursec<10 ){
+                            dursec="0"+dursec;
+                        }
+                       
+
+                        document.getElementById("timer").innerHTML=minutes+":"+seconds;
+                        document.getElementById("durationTime").innerHTML=durMin+":"+dursec;
+                            
+      });
+
+
+     
+        
+            function playVid() { 
+                vid.play(); 
+            } 
+        
+            function pauseVid() { 
+                vid.pause(); 
+            }
+            console.log(vid.duration);
+            
+            function backwordVid() { 
+                vid.currentTime = vid.currentTime -10;
+                if( vid.currentTime == 0){
+                    vid.currentTime = 0;
+                }
+                } 
+
+                function startVid() { 
+                vid.currentTime =0;
+                vid.play();
+                
+                } 
+                function endVid() { 
+                    
+                    vid.currentTime = vid.duration-1;
+                
+                } 
+                var flag =true;
+                function muteVid() { 
+                    
+                    if(flag==true)
+                    {
+                        vid.muted= true;
+                        flag=false;
+                    }
+                    
+                    else{
+                        vid.muted= false;
+                        flag=true;
+                    }
+                
+                } 
+
+                function full() { 
+                    vid.requestFullscreen();
+        
+                } 
+
+                function forwordVid() { 
+                    vid.currentTime = vid.currentTime +10;
+                if( vid.currentTime == vid.duration){
+                    vid.currentTime = 0;
+                }
+                
+                } 
+
+               
+    </script>
+</body>
+</html>
+
+

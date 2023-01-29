@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+      div{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        margin-top: 300px;
+      }
+      .but{
+        width: 200px;
+        height: 50px;
+        border: 2px solid red;
+        border-radius: 0%;
+        position: relative;
+        background-color: aquamarine;
+        
+        
+      }
+
+      .but:hover{
+        animation-name: myanim;
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-delay: 1s;
+        
+      }
+
+    @keyframes myanim{
+        0% {
+            width: 230px;
+          background-color:blueviolet;
+          border-radius: 5px;
+          border-color: blue;
+          box-shadow: 10px 10px 5px 12px lightblue;
+        }
+        25% {
+            width: 260px;
+          opacity: 0.5;
+          box-shadow: 5px 12px 5px 10px rgb(101, 79, 178) ;
+        }
+        50% {
+          border-radius: 10px;
+          width: 300px;
+          opacity: .0.5;
+          background-color: aquamarine;
+        }
+        100% {
+            width: 200px;
+          background-color: blue;
+        }
+      }
+
+      
+    </style>
+</head>
+<body>
+    <div>
+    <button class="but"> Click on me</button>
+</div>
+</body>
+</html>

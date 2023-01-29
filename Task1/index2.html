@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/action_page.php" style="display: inline-block;" >
+        red    <input type="range" id="red" name="red" min="0" max="255" value="0" style="width: 200px; margin-left: 35px; margin-top: 20px;"><br>
+         green <input type="range" id="green" name="green" min="0" max="255" value="0" style="width: 200px;  margin-left: 20px; margin-top: 20px;"><br>
+        blue   <input type="range" id="blue" name="blue" min="0" max="255" value="0" style="width: 200px;  margin-left:28px; margin-top: 20px;"><br>
+      </form>
+    <h1  id = "text" style="color: rgb(22, 24, 100);">Hello</h1>
+
+    <script>
+
+        var text= document.getElementById("text");
+        var red= document.getElementById("red");
+        var green= document.getElementById("green");
+        var blue= document.getElementById("blue");
+        var rValue ,gValue , bValue;
+        red.addEventListener("change", function () {
+        
+            rValue=red.value;
+            text.style.color=  `rgb(${rValue}, ${gValue}, ${bValue})`;
+                 
+      });
+
+      green.addEventListener("change", function () {
+        
+        gValue=green.value;
+        text.style.color=  `rgb(${rValue}, ${gValue}, ${bValue})`;
+             
+  });
+
+  blue.addEventListener("change", function () {
+        
+        bValue=blue.value;
+        text.style.color=  `rgb(${rValue}, ${gValue}, ${bValue})`;
+             
+  });
+        
+     
+    </script>
+</body>
+</html>
